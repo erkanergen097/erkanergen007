@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Araç Takip</title>
+  <link rel="stylesheet" href="/vendor/leaflet/leaflet.css" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <aside id="sidebar">
+    <header>
+      <h1>Araç Takip</h1>
+      <span id="conn" class="conn off" title="Canlı bağlantı">●</span>
+    </header>
+
+    <div class="summary" id="summary"></div>
+
+    <section>
+      <h2>Araçlar</h2>
+      <ul id="vehicles"></ul>
+      <details>
+        <summary>+ Araç ekle</summary>
+        <form id="add-form">
+          <input name="plate" placeholder="Plaka (34 ABC 123)" required />
+          <input name="name" placeholder="Araç adı" />
+          <input name="driver" placeholder="Sürücü" />
+          <input name="speed_limit" type="number" min="1" value="90" title="Hız limiti (km/s)" />
+          <button>Kaydet</button>
+          <p class="error" id="add-error"></p>
+        </form>
+      </details>
+    </section>
+
+    <section id="detail" hidden>
+      <h2>Rota geçmişi <button id="close-detail" class="link">kapat</button></h2>
+      <div id="detail-info"></div>
+      <label>Aralık
+        <select id="range">
+          <option value="15">Son 15 dk</option>
+          <option value="60" selected>Son 1 saat</option>
+          <option value="360">Son 6 saat</option>
+          <option value="1440">Son 24 saat</option>
+        </select>
+      </label>
+      <div id="history-info"></div>
+    </section>
+
+    <section>
+      <h2>Uyarılar</h2>
+      <ul id="alerts"></ul>
+    </section>
+  </aside>
+  <main id="map"></main>
+
+  <script src="/vendor/leaflet/leaflet.js"></script>
+  <script src="/app.js" type="module"></script>
+</body>
+</html>

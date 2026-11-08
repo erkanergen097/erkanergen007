@@ -1,0 +1,20 @@
+{
+  "name": "arac-takip",
+  "version": "0.1.0",
+  "description": "Araç takip sistemi: canlı harita, rota geçmişi, hız uyarıları",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "express": "^5.3.0",
+    "leaflet": "1.9",
+    "ws": "^8.22.2"
+  }
+}
