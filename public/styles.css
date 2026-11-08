@@ -1,0 +1,123 @@
+:root {
+  color-scheme: light;
+  --ink: #172033;
+  --muted: #5d6b82;
+  --line: #d7deea;
+  --paper: #f4f7fb;
+  --card: #ffffff;
+  --accent: #0f6e6b;
+  font-family: "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.top, .summary, .toolbar, .list, .empty, .error {
+  width: min(1080px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 16px;
+  padding: 28px 0 8px;
+}
+
+h1, h2 { margin: 0; letter-spacing: -0.03em; }
+.eyebrow { margin: 0 0 4px; color: var(--accent); font-weight: 700; }
+
+button, input, select, textarea { font: inherit; }
+
+button {
+  border: 0;
+  border-radius: 10px;
+  background: var(--accent);
+  color: white;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+button.ghost, button.danger {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+button.danger { color: #9b2331; }
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.summary article, .card, dialog form {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+.summary article { padding: 14px; }
+.summary span { display: block; font-size: 28px; font-weight: 750; }
+.summary small, .meta { color: var(--muted); }
+.summary [data-tone="yolda"] span { color: #0b6b3a; }
+.summary [data-tone="bekliyor"] span { color: #8a5a00; }
+.summary [data-tone="bakimda"] span { color: #9b2331; }
+.summary [data-tone="musait"] span { color: #155e9c; }
+
+.toolbar { display: flex; gap: 12px; margin: 16px auto; }
+label { display: grid; gap: 6px; color: var(--muted); font-size: 14px; }
+
+input, select, textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: var(--ink);
+  background: white;
+}
+
+.list { display: grid; gap: 12px; padding-bottom: 40px; }
+.card { display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 16px; }
+.plate { font-size: 20px; font-weight: 750; }
+
+.badge {
+  display: inline-block;
+  margin-top: 8px;
+  border-radius: 999px;
+  padding: 4px 9px;
+  background: #e8eef7;
+  font-size: 13px;
+}
+
+.badge.yolda { background: #e5f6ec; color: #0b6b3a; }
+.badge.bekliyor { background: #fff4d8; color: #8a5a00; }
+.badge.bakimda { background: #fde8eb; color: #9b2331; }
+.badge.musait { background: #e7f2fb; color: #155e9c; }
+.card-actions { display: flex; gap: 8px; align-items: start; }
+.empty, .error { padding-bottom: 20px; }
+.error { color: #9b2331; }
+
+dialog {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  width: min(460px, calc(100% - 24px));
+}
+
+dialog::backdrop { background: rgba(23, 32, 51, 0.45); }
+dialog form { display: grid; gap: 12px; padding: 18px; }
+.actions { display: flex; justify-content: end; gap: 8px; }
+
+@media (max-width: 760px) {
+  .summary { grid-template-columns: repeat(2, 1fr); }
+  .toolbar, .card, .top { display: grid; }
+}

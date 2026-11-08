@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Araç Takip</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div>
+        <p class="eyebrow">Filo paneli</p>
+        <h1>Araç takip</h1>
+      </div>
+      <button id="add-open" type="button">Araç ekle</button>
+    </header>
+
+    <section class="summary" aria-label="Özet">
+      <article><span id="count-all">0</span><small>Toplam</small></article>
+      <article data-tone="yolda"><span id="count-yolda">0</span><small>Yolda</small></article>
+      <article data-tone="bekliyor"><span id="count-bekliyor">0</span><small>Bekliyor</small></article>
+      <article data-tone="bakimda"><span id="count-bakimda">0</span><small>Bakımda</small></article>
+      <article data-tone="musait"><span id="count-musait">0</span><small>Müsait</small></article>
+    </section>
+
+    <section class="toolbar">
+      <label>
+        Ara
+        <input id="query" type="search" placeholder="Plaka, sürücü veya konum" />
+      </label>
+      <label>
+        Durum
+        <select id="filter">
+          <option value="">Tümü</option>
+          <option value="yolda">Yolda</option>
+          <option value="bekliyor">Bekliyor</option>
+          <option value="bakimda">Bakımda</option>
+          <option value="musait">Müsait</option>
+        </select>
+      </label>
+    </section>
+
+    <p id="empty" class="empty" hidden>Henüz araç yok. İlk aracı ekleyin.</p>
+    <p id="error" class="error" role="alert" hidden></p>
+    <div id="list" class="list"></div>
+
+    <dialog id="editor">
+      <form id="form">
+        <h2 id="form-title">Araç ekle</h2>
+        <label>Plaka<input name="plate" required maxlength="16" autocomplete="off" /></label>
+        <label>Araç<input name="name" required maxlength="80" placeholder="Ford Transit" /></label>
+        <label>Sürücü<input name="driver" maxlength="80" /></label>
+        <label>
+          Durum
+          <select name="status">
+            <option value="musait">Müsait</option>
+            <option value="yolda">Yolda</option>
+            <option value="bekliyor">Bekliyor</option>
+            <option value="bakimda">Bakımda</option>
+          </select>
+        </label>
+        <label>Konum notu<input name="location" maxlength="160" placeholder="Kadıköy depo" /></label>
+        <label>Not<textarea name="note" maxlength="280" rows="3"></textarea></label>
+        <p id="form-error" class="error" hidden></p>
+        <div class="actions">
+          <button type="button" id="cancel" class="ghost">Vazgeç</button>
+          <button type="submit">Kaydet</button>
+        </div>
+      </form>
+    </dialog>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

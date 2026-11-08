@@ -1,0 +1,12 @@
+{
+  "resources": {
+    "preview": {
+      "cpu": 1,
+      "memoryGiB": 1
+    }
+  },
+  "ports": {
+    "preview": 3000
+  },
+  "run": "node server.js"
+}
